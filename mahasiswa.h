@@ -11,7 +11,7 @@
 #include <stdio.h>
 
 typedef struct {
-  char nama[50];
+  char nama[100];
   int nilai;
 } infotype;
 typedef struct tElmtList *address;
@@ -24,20 +24,27 @@ typedef struct {
 } List;
 
 bool isEmpty(address p);
-void Create_Node(address *p);
-void Isi_Node(address *p, char *nama, int nilai);
-void Tampil_List(address p);
-void Ins_Awal(address *p, address PNew);
+void Modify(address p, infotype mhs);
+void createNode(address *p);
+void createMhs(infotype *mhs, char* nama, int nilai);
+void insertNode(address *p, infotype mhs);
+void printList(address p);
+void insertFirst(address *p, address PNew);
+void printListDescendingByNilai(List l);
+address insertSortedAscending(address p, address pNew);
+void insertSortWrapper(List *l, address pNew);
 void Ins_Akhir(address *p, address PNew);
-address Search(address p, infotype nilai);
+void copyWhereNilaiAboveThreshold(List l1, List *l2, int nilaiMin);
+void removeDuplicatedNama(List *l);
+address Search(address p, infotype mhs);
 void InsertAfter(address *pBef, address PNew);
 void Del_Awal(address *p, infotype *X);
 void Del_Akhir(address *p, infotype *X);
 void Del_After(address *pBef, infotype *X);
-void DeAlokasi(address *p);
+void purgeList(List *l);
 int NbElmt(address p);
-infotype Min(address p);
-infotype Rerata(address p);
+int MinNilai(address p);
+int RerataNilai(address p);
 address BalikList(address p);
 
 #endif
